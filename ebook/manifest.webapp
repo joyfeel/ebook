@@ -1,0 +1,14 @@
+{
+  "type": "privileged",
+  "name": "eBook",
+  "description": "software engineer project",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "joyfeel",
+    "url": "https://github.com/joyfeel"
+  },
+  "default_locale": "en",
+  "icons": {
+    "128": "/images/123.png"
+  }
+}
