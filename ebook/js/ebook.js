@@ -1,45 +1,60 @@
-$(function() {
-    $('ul#tabs li a').click(function() {
-		var index = $('ul#tabs li a').index(this);
-		$('.tab:visible').hide();
-		$(".tab:eq("+index+")").show();
-		return false; 
-	});
-	
-	$('#id1').click (function () {
-		var path = "epub/test.epub";
-
-		var ajReq = new XMLHttpRequest();
-		 try{
-            ajReq.open( 'GET' , path , false );
-            ajReq.overrideMimeType( 'text/plain; charset=x-user-defined' );
-            ajReq.send(null);
-            ajReq.overrideMimeType( 'text/plain; charset=UTF-8' );
+function listContents(storagename) {
  
-            var out = ajReq.responseText || '' ;
-            var out_array = [];
-            for( var i=0, len=out.length, scc=String.fromCharCode ; i<len ; ++i )
-                out_array[i] = scc( out.charCodeAt(i) & 0xff );
-            var out_binary = out_array.join( '' );
+        //Clear up the list first
+        $('#results').html("");
+        var files = navigator.getDeviceStorage(storagename);
  
-            if( out_binary !== '' )
-            {
-                var unzipper;
-
-				unzipper = null;
-				unzipper = Zip;
-				unzipper.Archive( out_binary );
-				for (var i = 0 , len = unzipper.entries.length; i < len ; i++)
-					unzipper.entries[i].content();
-				$(this).text (unzipper.entries[3].content());
-				$("#id2").text (unzipper.entries[4].content());
-				$("#id3").text (unzipper.entries[5].content());
-            }            
-        }catch( err ){
+        var cursor = files.enumerate();
+		
+		//alert (files[0]);
+		var arr=[];
+        cursor.onsuccess = function () {
+                //alert("Got something");
+                var file = this.result;
  
-            alert( 'File not exist');
+                if (file != null) {
+                    //var imageElement = $('<img height="50" width="50">');
+                    //imageElement.attr('src', window.URL.createObjectURL(file));
+                    $("<p>" + file.name + file.type + "</p>").appendTo('#results');
+                    //imageElement.appendTo("#results");
+					//alert (file.name);
+					//var path = "C:////+" + file.name;
+					
+					arr.push (file.name);
+					
+                    this.done = false;
+                }
+        else {
+			this.done = true;
+        }
  
+        if (!this.done) {
+                this.continue();
         }
 		
-    });
+		$('#id2').text (arr[0]);
+		$('#id3').text (arr[1]);
+		$('#id4').text (arr[2]);
+		$('#id5').text (arr[3]);
+		
+		//$('#id3').text (arr[1]);
+   }
+   
+   
+}
+$(document).ready(function(){
+ 
+$("#browseSDCard").click(function(){
+listContents('sdcard');
+});
+$("#browseVideos").click(function(){
+listContents('videos');
+});
+$("#browseMusic").click(function(){
+listContents('music');
+});
+$("#browsePictures").click(function(){
+listContents('pictures');
+});
+ 
 });
