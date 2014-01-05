@@ -1,44 +1,64 @@
 function listContents(storagename) {
- 
+		$('#results').html("");
         //Clear up the list first
-        $('#results').html("");
-        var files = navigator.getDeviceStorage(storagename);
+        var storage = navigator.getDeviceStorage(storagename);
+		
+		if (!storage) {
+			alert("No storage available!");
+			return false;
+		}
+
+		var request = storage.enumerate();
+		request.onsuccess = function() {
+			
+			var file = this.result;
+			
+			if (file != null) {
+				var url = URL.createObjectURL(file);
+
+				globalFileName.push (file.name);
+				globalPathName.push (url);
+				globalPathContent.push (file);
+
+				this.done = false;
+			}
+			else {
+			    this.done = true;
+			}
  
-        var cursor = files.enumerate();
- 
-        cursor.onsuccess = function () {
-                //alert("Got something");
-                var file = this.result;
-                   
-                if (file != null) {
-                    var imageElement = $('<img height="50" width="50">');
-                    imageElement.attr('src', window.URL.createObjectURL(file));
-                    $("<p>" + file.name + file.type + "</p>").appendTo('#results');
-                    imageElement.appendTo("#results");
-                    this.done = false;
-                    }
-        else {
-                this.done = true;
-             }
- 
-        if (!this.done) {
-                this.continue();
-             }
-   }
+			if (!this.done) {
+		        this.continue();
+			}
+		};
 }
+
+var globalFileName=[];
+var globalPathName=[];
+var globalPathContent=[];
+
 $(document).ready(function(){
- 
-$("#browseSDCard").click(function(){
-listContents('sdcard');
-});
-$("#browseVideos").click(function(){
-listContents('videos');
-});
-$("#browseMusic").click(function(){
-listContents('music');
-});
-$("#browsePictures").click(function(){
-listContents('pictures');
-});
- 
+	$("#browseSDCard").click(function(){
+		listContents('sdcard');
+		$('#file1').text (globalFileName[0]);
+		$('#file2').text (globalFileName[1]);
+	});
+	
+	$("#file1").click(function(e){
+		var flre = new FileReader();
+		var test = flre.readAsText(globalPathContent[0]);
+		
+		flre.addEventListener("load",function(e) {
+			$('#file1').text (e.target.result);
+		});
+		
+		//alert (path);
+	});
+	
+	$("#file2").click(function(){
+		//TODO
+		alert (globalPathName[1]);
+	
+	});
+
+	
 });
