@@ -1,7 +1,6 @@
 function listContents(storagename) {
 		$('#results').html("");
         //Clear up the list first
-<<<<<<< HEAD
         var storage = navigator.getDeviceStorage(storagename);
 		
 		if (!storage) {
@@ -31,48 +30,6 @@ function listContents(storagename) {
 		        this.continue();
 			}
 		};
-=======
-        $('#results').html("");
-        var files = navigator.getDeviceStorage(storagename);
- 
-        var cursor = files.enumerate();
-		
-		//alert (files[0]);
-		var arr=[];
-        cursor.onsuccess = function () {
-                //alert("Got something");
-                var file = this.result;
- 
-                if (file != null) {
-                    //var imageElement = $('<img height="50" width="50">');
-                    //imageElement.attr('src', window.URL.createObjectURL(file));
-                    $("<p>" + file.name + file.type + "</p>").appendTo('#results');
-                    //imageElement.appendTo("#results");
-					//alert (file.name);
-					//var path = "C:////+" + file.name;
-					
-					arr.push (file.name);
-					
-                    this.done = false;
-                }
-        else {
-			this.done = true;
-        }
- 
-        if (!this.done) {
-                this.continue();
-        }
-		
-		$('#id2').text (arr[0]);
-		$('#id3').text (arr[1]);
-		$('#id4').text (arr[2]);
-		$('#id5').text (arr[3]);
-		
-		//$('#id3').text (arr[1]);
-   }
-   
-   
->>>>>>> 0dcd0d62ee3d53666e3a4b45299c481bd0a07078
 }
 
 var globalFileName=[];
@@ -122,158 +79,23 @@ $(document).ready(function(){
 
 	$("#file3").click(function(){
 		//TODO
-		//alert (globalPathName[2]);
-		
-		//write record for file3
-		recordFile = globalFileName[2];
-		
-		//alert(recordFile);
-		
-		var transaction = db.transaction([ 'notes' ], 'readwrite');
-		var value = {};
-		value.title = recordFile;
-		var store = transaction.objectStore('notes');
-		var request = store.add(value);
-		request.onsuccess = function (e) {
-		    //alert("Your note has been saved");
-		};
-		request.onerror = function (e) {
-		  //alert("Error in saving the note. Reason : " + e.value);
+		alert (globalPathName[2]);
 	
 	});
 
     $("#file4").click(function(){
 		//TODO
-		//alert (globalPathName[3]);
-		
-		//write record for file4
-		recordFile = globalFileName[3];
-		
-		//alert(recordFile);
-		
-		var transaction = db.transaction([ 'notes' ], 'readwrite');
-		var value = {};
-		value.title = recordFile;
-		var store = transaction.objectStore('notes');
-		var request = store.add(value);
-		request.onsuccess = function (e) {
-		    //alert("Your note has been saved");
-		};
-		request.onerror = function (e) {
-		  //alert("Error in saving the note. Reason : " + e.value);
+		alert (globalPathName[3]);
 	
 	});
 
     $("#file5").click(function(){
 		//TODO
-		//alert (globalPathName[4]);
-		
-		//write record for file5
-		recordFile = globalFileName[4];
-		
-		//alert(recordFile);
-		
-		var transaction = db.transaction([ 'notes' ], 'readwrite');
-		var value = {};
-		value.title = recordFile;
-		var store = transaction.objectStore('notes');
-		var request = store.add(value);
-		request.onsuccess = function (e) {
-		    //alert("Your note has been saved");
-		};
-		request.onerror = function (e) {
-		  //alert("Error in saving the note. Reason : " + e.value);
+		alert (globalPathName[4]);
 	
 	});
 
-     $("#file6").click(function(){
-		//TODO
-		//alert (globalPathName[5]);
-		
-		//write record for file6
-		recordFile = globalFileName[5];
-		
-		//alert(recordFile);
-		
-		var transaction = db.transaction([ 'notes' ], 'readwrite');
-		var value = {};
-		value.title = recordFile;
-		var store = transaction.objectStore('notes');
-		var request = store.add(value);
-		request.onsuccess = function (e) {
-		    //alert("Your note has been saved");
-		};
-		request.onerror = function (e) {
-		  //alert("Error in saving the note. Reason : " + e.value);
-	
-	});
-	
-	$("#file7").click(function(){
-		//TODO
-		//alert (globalPathName[6]);
-		
-		//write record for file7
-		recordFile = globalFileName[6];
-		
-		//alert(recordFile);
-		
-		var transaction = db.transaction([ 'notes' ], 'readwrite');
-		var value = {};
-		value.title = recordFile;
-		var store = transaction.objectStore('notes');
-		var request = store.add(value);
-		request.onsuccess = function (e) {
-		    //alert("Your note has been saved");
-		};
-		request.onerror = function (e) {
-		  //alert("Error in saving the note. Reason : " + e.value);
-	
-	});
-	
-	$("#file8").click(function(){
-		//TODO
-		//alert (globalPathName[7]);
-		
-		//write record for file8
-		recordFile = globalFileName[7];
-		
-		//alert(recordFile);
-		
-		var transaction = db.transaction([ 'notes' ], 'readwrite');
-		var value = {};
-		value.title = recordFile;
-		var store = transaction.objectStore('notes');
-		var request = store.add(value);
-		request.onsuccess = function (e) {
-		    //alert("Your note has been saved");
-		};
-		request.onerror = function (e) {
-		  //alert("Error in saving the note. Reason : " + e.value);
-	
-	});
-	
-	$("#file9").click(function(){
-		//TODO
-		//alert (globalPathName[8]);
-		
-		//write record for file9
-		recordFile = globalFileName[8];
-		
-		//alert(recordFile);
-		
-		var transaction = db.transaction([ 'notes' ], 'readwrite');
-		var value = {};
-		value.title = recordFile;
-		var store = transaction.objectStore('notes');
-		var request = store.add(value);
-		request.onsuccess = function (e) {
-		    //alert("Your note has been saved");
-		};
-		request.onerror = function (e) {
-		  //alert("Error in saving the note. Reason : " + e.value);
-	
-	});
-    
+
 });
 
 
@@ -289,7 +111,6 @@ function initializeDB() {
 	   alert("Indexed DB is not supported. Where are you trying to run this ? ");
 	}
  
-<<<<<<< HEAD
 	// open the database
 	// 1st parameter : Database name. We are using the name 'notesdb'
 	// 2nd parameter is the version of the database.
@@ -378,6 +199,3 @@ $(document).ready(function(){
 		});
 		
 });	
-=======
-});
->>>>>>> 0dcd0d62ee3d53666e3a4b45299c481bd0a07078
