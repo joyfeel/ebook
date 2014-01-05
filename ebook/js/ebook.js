@@ -1,54 +1,45 @@
-
-        var bookData = {
-          getComponents: function () {
-            return [
-              'component1.xhtml',
-              'component2.xhtml',
-              'component3.xhtml',
-              'component4.xhtml'
-            ];
-          },
-          getContents: function () {
-            return [
-              {
-                title: "Chapter 1",
-                src: "component1.xhtml"
-              },
-              {
-                title: "Chapter 2",
-                src: "component3.xhtml#chapter-2"
-              }
-            ]
-          },
-          getComponent: function (componentId) {
-            return {
-              'component1.xhtml':
-                test,
-              'component2.xhtml':
-                '<p>Chapter 1 continued.</p>',
-              'component3.xhtml':
-                '<p>Chapter 1 continued again.</p>' +
-                '<h1 id="chapter-2">Chapter 2</h1>' +
-                '<p>Hello from the second chapter.</p>',
-              'component4.xhtml':
-                '<p>THE END.</p>'
-            }[componentId];
-          },
-          getMetaData: function(key) {
-            return {
-              title: "A book",
-              creator: "Inventive Labs"
-            }[key];
-          }
-        }
-
-        // Initialize the reader element.
-		/*
-        Monocle.Reader('reader', bookData, {}, function (reader) {
-          reader.moveTo({ page: 1 });
-        });
-		*/
-
+var bookData = {
+	  getComponents: function () {
+		return [
+		  'component1.xhtml',
+		  'component2.xhtml',
+		  'component3.xhtml',
+		  'component4.xhtml'
+		];
+	  },
+	  getContents: function () {
+		return [
+		  {
+			title: "Chapter 1",
+			src: "component1.xhtml"
+		  },
+		  {
+			title: "Chapter 2",
+			src: "component3.xhtml#chapter-2"
+		  }
+		]
+	  },
+	  getComponent: function (componentId) {
+		return {
+		  'component1.xhtml':
+			test,
+		  'component2.xhtml':
+			'<p>Chapter 1 continued.</p>',
+		  'component3.xhtml':
+			'<p>Chapter 1 continued again.</p>' +
+			'<h1 id="chapter-2">Chapter 2</h1>' +
+			'<p>Hello from the second chapter.</p>',
+		  'component4.xhtml':
+			'<p>THE END.</p>'
+		}[componentId];
+	  },
+	  getMetaData: function(key) {
+		return {
+		  title: "A book",
+		  creator: "Inventive Labs"
+		}[key];
+	  }
+}
 
 
 $(function() {
