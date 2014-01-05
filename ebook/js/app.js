@@ -143,7 +143,94 @@ $(document).ready(function(){
 	
 	});
 
-
+     $("#file6").click(function(){
+		//TODO
+		//alert (globalPathName[5]);
+		
+		//write record for file6
+		recordFile = globalFileName[5];
+		
+		//alert(recordFile);
+		
+		var transaction = db.transaction([ 'notes' ], 'readwrite');
+		var value = {};
+		value.title = recordFile;
+		var store = transaction.objectStore('notes');
+		var request = store.add(value);
+		request.onsuccess = function (e) {
+		    //alert("Your note has been saved");
+		};
+		request.onerror = function (e) {
+		  //alert("Error in saving the note. Reason : " + e.value);
+	
+	});
+	
+	$("#file7").click(function(){
+		//TODO
+		//alert (globalPathName[6]);
+		
+		//write record for file7
+		recordFile = globalFileName[6];
+		
+		//alert(recordFile);
+		
+		var transaction = db.transaction([ 'notes' ], 'readwrite');
+		var value = {};
+		value.title = recordFile;
+		var store = transaction.objectStore('notes');
+		var request = store.add(value);
+		request.onsuccess = function (e) {
+		    //alert("Your note has been saved");
+		};
+		request.onerror = function (e) {
+		  //alert("Error in saving the note. Reason : " + e.value);
+	
+	});
+	
+	$("#file8").click(function(){
+		//TODO
+		//alert (globalPathName[7]);
+		
+		//write record for file8
+		recordFile = globalFileName[7];
+		
+		//alert(recordFile);
+		
+		var transaction = db.transaction([ 'notes' ], 'readwrite');
+		var value = {};
+		value.title = recordFile;
+		var store = transaction.objectStore('notes');
+		var request = store.add(value);
+		request.onsuccess = function (e) {
+		    //alert("Your note has been saved");
+		};
+		request.onerror = function (e) {
+		  //alert("Error in saving the note. Reason : " + e.value);
+	
+	});
+	
+	$("#file9").click(function(){
+		//TODO
+		//alert (globalPathName[8]);
+		
+		//write record for file9
+		recordFile = globalFileName[8];
+		
+		//alert(recordFile);
+		
+		var transaction = db.transaction([ 'notes' ], 'readwrite');
+		var value = {};
+		value.title = recordFile;
+		var store = transaction.objectStore('notes');
+		var request = store.add(value);
+		request.onsuccess = function (e) {
+		    //alert("Your note has been saved");
+		};
+		request.onerror = function (e) {
+		  //alert("Error in saving the note. Reason : " + e.value);
+	
+	});
+    
 });
 
 
