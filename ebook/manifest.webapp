@@ -10,5 +10,10 @@
   "default_locale": "en",
   "icons": {
     "128": "/images/123.png"
+  },
+  "permissions": {
+      "device-storage:sdcard":{ "access": "readonly" },
+      "device-storage:pictures":{ "access": "readwrite" }
   }
+  
 }
