@@ -1,6 +1,7 @@
 function listContents(storagename) {
 		$('#results').html("");
         //Clear up the list first
+<<<<<<< HEAD
         var storage = navigator.getDeviceStorage(storagename);
 		
 		if (!storage) {
@@ -30,6 +31,48 @@ function listContents(storagename) {
 		        this.continue();
 			}
 		};
+=======
+        $('#results').html("");
+        var files = navigator.getDeviceStorage(storagename);
+ 
+        var cursor = files.enumerate();
+		
+		//alert (files[0]);
+		var arr=[];
+        cursor.onsuccess = function () {
+                //alert("Got something");
+                var file = this.result;
+ 
+                if (file != null) {
+                    //var imageElement = $('<img height="50" width="50">');
+                    //imageElement.attr('src', window.URL.createObjectURL(file));
+                    $("<p>" + file.name + file.type + "</p>").appendTo('#results');
+                    //imageElement.appendTo("#results");
+					//alert (file.name);
+					//var path = "C:////+" + file.name;
+					
+					arr.push (file.name);
+					
+                    this.done = false;
+                }
+        else {
+			this.done = true;
+        }
+ 
+        if (!this.done) {
+                this.continue();
+        }
+		
+		$('#id2').text (arr[0]);
+		$('#id3').text (arr[1]);
+		$('#id4').text (arr[2]);
+		$('#id5').text (arr[3]);
+		
+		//$('#id3').text (arr[1]);
+   }
+   
+   
+>>>>>>> 0dcd0d62ee3d53666e3a4b45299c481bd0a07078
 }
 
 var globalFileName=[];
@@ -246,6 +289,7 @@ function initializeDB() {
 	   alert("Indexed DB is not supported. Where are you trying to run this ? ");
 	}
  
+<<<<<<< HEAD
 	// open the database
 	// 1st parameter : Database name. We are using the name 'notesdb'
 	// 2nd parameter is the version of the database.
@@ -334,3 +378,6 @@ $(document).ready(function(){
 		});
 		
 });	
+=======
+});
+>>>>>>> 0dcd0d62ee3d53666e3a4b45299c481bd0a07078
