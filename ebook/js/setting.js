@@ -1,10 +1,10 @@
 $(document).ready(function(){
 
+//101522050
 $("#fontSizeSmall").click(function() {
 
 	fontStyle = 1;
 });
-
 
 $("#fontSizeLarge").click(function() {
 
@@ -12,7 +12,7 @@ $("#fontSizeLarge").click(function() {
 });
 
 
-
+//102525012 
 $("span").click(function() {
      var cssFontSize = $("#testword").css("font-size");
      var fontSize = parseFloat(cssFontSize);
@@ -36,6 +36,8 @@ $("span").click(function() {
 	}
 	*/
     });
+	
+//102525012 
 $("#11").click(function() {
 	 $("#testword").css("color","black");
 	 
@@ -59,7 +61,10 @@ $("#14").click(function() {
 	 colorStyle = "#white";
 	 })
 	 */
-$("#21").click(function() {
+	 
+	 
+//102525012 
+$("#21").click(function() {                     //Lien
 	 $("#testword").css("background","#332B33");//black
 	 })
 $("#22").click(function() {
@@ -73,7 +78,7 @@ $("#24").click(function() {
 	 })	 
 	 
 	 
-	 
+//102525012 	 
 $("#makesure").click(function() {
      var cssFontSize = $("#testword").css("font-size");
      var fontSize = parseFloat(cssFontSize);
@@ -84,13 +89,11 @@ $("#makesure").click(function() {
 	 var bcolor = $("#testword").css("background-color");
      $(".tab").css("background",bcolor);
 })
-	 
+
+//102525012 
 $(read_window).scroll(function () {
      var scrollVal = $(this).scrollTop();
      $("span.scrollnum").text(scrollVal);
     });
 
-	
-	
-	
 	})

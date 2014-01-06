@@ -2,12 +2,13 @@
 // variable which will hold the database connection
 var db;
 
+//102522021
 function initializeDB() {
 	if (window.indexedDB) {
 	  console.log("IndexedDB support is there");
 	}
 	else {
-	   alert("Indexed DB is not supported. Where are you trying to run this ? ");
+	   //alert("Indexed DB is not supported. Where are you trying to run this ? ");
 	}
  
 	// open the database
@@ -45,6 +46,7 @@ function initializeDB() {
 	};
 }	
 
+//101522050
 function listContents(storagename) {
         //Clear up the list first
 	var storage = navigator.getDeviceStorage(storagename);
@@ -143,6 +145,7 @@ function listContents(storagename) {
 	});
 }
 
+//101522050
 var bookData = {
 	  getComponents: function () {
 		return [
@@ -192,6 +195,7 @@ var boolArray=[];
 var colorStyle = "#000000";
 var fontStyle = 1;
 
+//102522021
 $(function() {
 	//Initialize the Database first
     initializeDB();
@@ -206,13 +210,14 @@ $(function() {
 	   var request = store.clear();
 	   request.onsuccess = function () {
 		   $("#record-list").html("");
-		   alert("All Notes have got cleared");
+		   //alert("All Notes have got cleared");
 	   }
 	   request.onerror = function (e) {
 		   alert("Error while deleting notes : " + e.value);
 	   };
 	});
 
+	//102522021
 	$("#record").click(function(){
 	  //Change to the tab record
 	  
