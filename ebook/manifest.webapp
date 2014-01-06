@@ -9,7 +9,7 @@
   },
   "default_locale": "en",
   "icons": {
-    "128": "/images/123.png"
+    "128": "/images/ebook.png"
   },
   "permissions": {
       "device-storage:sdcard":{ "access": "readonly" },
