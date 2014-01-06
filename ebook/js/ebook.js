@@ -278,6 +278,7 @@ $(function() {
 		}
     });
 	
+<<<<<<< HEAD
 	 $('#file2').click (function () {
 		boolArray[0] = false;
 		boolArray[1] = true; 
@@ -345,3 +346,23 @@ $(function() {
 	});
 	
 });
+=======
+	$("span").click(function() {
+     var cssFontSize = $("#testword").css("font-size"); //獲取字體大小
+     var fontSize = parseFloat(cssFontSize); //獲取字體大小的值
+     var unit = cssFontSize.slice(-2); //獲取字體大小的單位
+     var className = $(this).attr("class");
+     if ("zoomIn" == className) { //放大字體
+      if (fontSize <= 30) {
+       fontSize += 6;
+      }
+     } else if ("zoomOut" == className) { //縮小字體
+      if (fontSize >= 18) {
+       fontSize -= 6;
+      }
+     }
+     $("#testword").css("font-size", fontSize + unit); 
+    });
+	
+});
+>>>>>>> origin/Setting_lien
