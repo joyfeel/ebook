@@ -278,7 +278,7 @@ $(function() {
 		}
     });
 	
-<<<<<<< HEAD
+
 	 $('#file2').click (function () {
 		boolArray[0] = false;
 		boolArray[1] = true; 
@@ -344,10 +344,7 @@ $(function() {
 		$('#file2').text (globalFileName[1]);
 		$('#file3').text (globalFileName[2]);
 	});
-	
-});
-=======
-	$("span").click(function() {
+		$("span").click(function() {
      var cssFontSize = $("#testword").css("font-size"); //獲取字體大小
      var fontSize = parseFloat(cssFontSize); //獲取字體大小的值
      var unit = cssFontSize.slice(-2); //獲取字體大小的單位
@@ -363,6 +360,6 @@ $(function() {
      }
      $("#testword").css("font-size", fontSize + unit); 
     });
-	
 });
->>>>>>> origin/Setting_lien
+
+

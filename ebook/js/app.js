@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-
-
-=======
+/*
 function listContents(storagename) {
 		$('#results').html("");
         //Clear up the list first
@@ -39,8 +36,9 @@ function listContents(storagename) {
 var globalFileName=[];
 var globalPathName=[];
 var globalPathContent=[];
-
+*/
 $(document).ready(function(){
+/*
 	$("#browseSDCard").click(function(){
 		listContents('sdcard');
 		$('#file1').text (globalFileName[0]);
@@ -64,6 +62,5 @@ $(document).ready(function(){
 	
 	});
 
-	
+*/	
 });
->>>>>>> origin/Setting_lien
