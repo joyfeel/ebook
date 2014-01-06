@@ -47,33 +47,33 @@ function initializeDB() {
 
 function listContents(storagename) {
         //Clear up the list first
-        var storage = navigator.getDeviceStorage(storagename);
+	var storage = navigator.getDeviceStorage(storagename);
+	
+	if (!storage) {
+		return false;
+	}
+
+	var request = storage.enumerate();
+	request.onsuccess = function() {
 		
-		if (!storage) {
-			return false;
+		var file = this.result;
+		
+		if (file != null) {
+			var url = URL.createObjectURL(file);
+
+			globalFileName.push (file.name);
+			globalPathName.push (url);
+
+			this.done = false;
+		}
+		else {
+			this.done = true;
 		}
 
-		var request = storage.enumerate();
-		request.onsuccess = function() {
-			
-			var file = this.result;
-			
-			if (file != null) {
-				var url = URL.createObjectURL(file);
-
-				globalFileName.push (file.name);
-				globalPathName.push (url);
-
-				this.done = false;
-			}
-			else {
-			    this.done = true;
-			}
- 
-			if (!this.done) {
-		        this.continue();
-			}
-		};
+		if (!this.done) {
+			this.continue();
+		}
+	};
 		
 		
 	Monocle.Events.listen(window, 'click', function () {
@@ -88,6 +88,7 @@ function listContents(storagename) {
 
 		var ajReq = new XMLHttpRequest();
 		 try{
+			//get globalPathName to open
             ajReq.open( 'GET' , path , false );
             ajReq.overrideMimeType( 'text/plain; charset=x-user-defined' );
             ajReq.send(null);
@@ -114,14 +115,17 @@ function listContents(storagename) {
         }catch( err ){
            // alert( 'File not exist');
         }
-	
+
 		var readerOptions = {
+			stylesheet: 'body { color: '+colorStyle+' ; }',
+			fontScale: fontStyle,
 			panels: Monocle.Panels.Magic
 		};
-		
+
 		Monocle.Reader('scrubberFirst', bookData, readerOptions, function (rdr) {
             window.reader1 = rdr;
             var scrubber = new Monocle.Controls.Scrubber(rdr);
+
             rdr.addControl(scrubber);
        });
 	   
@@ -185,6 +189,9 @@ var globalPathName=[];
 var content = [];
 var boolArray=[];
 
+var colorStyle = "#000000";
+var fontStyle = 1;
+
 $(function() {
 	//Initialize the Database first
     initializeDB();
@@ -237,14 +244,11 @@ $(function() {
     $('ul#tabs li a').click(function() {
 		var index = $('ul#tabs li a').index(this);
 		$('.readerInfo:visible').hide();
-		
+
 		$('.reader').hide();
-		//$('.readerInfo:visible').hide();
-		
+	
 		$(".readerInfo:eq("+index+")").show();
-		
-		//$(".readerInfo").show();
-		
+
 		$("#file1").show();
 		$("#file2").show();
 		$("#file3").show();
@@ -252,7 +256,6 @@ $(function() {
 		//return false; 
 	});
 
-	 
 	$('#file1').click (function () {
 		$('#file1').hide();    
 		$('#file2').hide();
@@ -261,7 +264,7 @@ $(function() {
 		$("#scrubberFirst").show();    boolArray[0] = true;
 		$("#scrubberSecond").hide();   boolArray[1] = false; 
 		$("#scrubberThird").hide();	   boolArray[2] = false; 
-		listContents('sdcard');
+		//listContents('sdcard');
 		//write record for file1
 		recordFile = globalFileName[0];
 
@@ -336,30 +339,48 @@ $(function() {
 		}
 	 });
 	 
-	 listContents('sdcard');
+	listContents('sdcard');
 	$("#browseSDCard").click(function(){
+		
 		listContents('sdcard');
 		
 		$('#file1').text (globalFileName[0]);
 		$('#file2').text (globalFileName[1]);
 		$('#file3').text (globalFileName[2]);
 	});
-		$("span").click(function() {
-     var cssFontSize = $("#testword").css("font-size"); //獲取字體大小
-     var fontSize = parseFloat(cssFontSize); //獲取字體大小的值
-     var unit = cssFontSize.slice(-2); //獲取字體大小的單位
-     var className = $(this).attr("class");
-     if ("zoomIn" == className) { //放大字體
-      if (fontSize <= 30) {
-       fontSize += 6;
-      }
-     } else if ("zoomOut" == className) { //縮小字體
-      if (fontSize >= 18) {
-       fontSize -= 6;
-      }
-     }
-     $("#testword").css("font-size", fontSize + unit); 
+	/*
+	$("span").click(function() {
+		var cssFontSize = $("#testword").css("font-size"); 	//獲取字體大小
+		var fontSize = parseFloat(cssFontSize); 			//獲取字體大小的值
+		var unit = cssFontSize.slice(-2); 					//獲取字體大小的單位
+		var className = $(this).attr("class");
+		if ("zoomIn" == className) { 						//放大字體
+			if (fontSize <= 30) {
+				fontSize += 6;
+			} 
+		} else if ("zoomOut" == className) { 				//縮小字體
+			if (fontSize >= 18) {
+				fontSize -= 6;
+			}
+		}
+		$("#testword").css("font-size", fontSize + unit); 
     });
+	*/
+	//colors = "#870FF0";
+	//joyfeel
+	
+	//$("#11")
+	/*
+	$("#makesure").click (function () {
+	
+		//$("#colorSelect").val ("#009");
+		
+		colors = "#870FF0";
+		//alert (colors);
+	});
+	
+	*/
+	
 });
 
 

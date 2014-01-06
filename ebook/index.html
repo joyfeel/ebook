@@ -9,17 +9,13 @@
   <link rel="stylesheet" type="text/css" href="dists/styles/monocore.css" />
   <link rel="stylesheet" type="text/css" href="dists/styles/monoctrl.css" />
   <style type="text/css">
-  
-	  .readerInfo {
-			width: 300px;
-			
-			padding-right: 20px;
-		  }
+	.readerInfo {
+		width: 300px;
+		padding-right: 20px;
+	}
   
 	.reader {
-        
 		position: relative;
-		
         width: 300px;
         height: 400px;
         border: 1px solid #000;
@@ -31,24 +27,14 @@
   <script src="js/jquery-2.0.2.min.js"></script>
   <script src="js/jquery.mobile-1.3.2.min.js"></script>
   <script src="js/ebook.js"></script>
-  <script src="js/app.js"></script>
-<<<<<<< HEAD
-
   <script src="js/zip/zip.js"></script>
   <script src="js/zip/inflate.js"></script>
   <script src="js/unzip.js"></script>
-  
-  <script type="text/javascript" src="dists/scripts/monocore.js"></script>
-  <script type="text/javascript" src="dists/scripts/monoctrl.js"></script>
-  
-=======
+  <script src="dists/scripts/monocore.js"></script>
+  <script src="dists/scripts/monoctrl.js"></script>
   <script src="js/setting.js"></script>
->>>>>>> origin/Setting_lien
-  <script src="js/zip/inflate.js"></script>
-  <script src="js/zip/zip.js"></script>
-  
-  <title>ebook</title>
 
+  <title> ebook </title>
 </head>
 
 <body>
@@ -78,11 +64,10 @@
 	
 	<!--content-->
     <div data-role="content">
-
 		<!--檔案-->
 		<div class="readerInfo">
 		
-			<p id="file1">dd<!--《冰魄寒光劍》--></p>
+			<p id="file1"><!--《冰魄寒光劍》--></p>
 			<div class="reader" id="scrubberFirst"></div>
 			
 			<p id="file2"><!--《神鵰俠侶》--></p>
@@ -96,9 +81,9 @@
 		
 		<!--紀錄-->
 		<div class="readerInfo" id="view-record">
-			
 			<a href="#" id="clearAllRecordBtn" data-role="button" class="ui-btn-right">Clear</a>
 		    <div id="record-list" data-role="content">
+			</div>
 		</div>
 		
 		<!--書籤-->
@@ -111,27 +96,43 @@
 			<div class=test align="center" style="font-size:200%;font-weight:bold">設定</div>
 			<br />
 			
-			  <div class=test align="center">字體大小</div>
-			  <center><table><tr>
-			  <span class="zoomIn"><img src=images/ZoomIn.png></span>
-			  <span class="zoomOut"><img src=images/ZoomOut.png></span>
-			  </tr></table></center>
-			  <br />
+			<div class=test align="center">
+				字體大小
+			</div>
+			
+			<center><table><tr>
+			<span class="zoomIn"><img id="fontSizeLarge" src=images/ZoomIn.png></span>
+			<span class="zoomOut"><img id="fontSizeSmall" src=images/ZoomOut.png></span>
+			</tr></table></center>
+			<br />
 			  
-			  <div class=test align="center">字體顏色</div>
-			  <center><table><tr>
-			  <td><img id="11" src=images/Black.gif></td><td><img id="12" src=images/Green.gif></td><td><img id="13" src=images/Blue.gif></td><td><img id="14" src=images/White.gif></td>
-			  </tr></table></center>
-			  <br />
+			<div class=test align="center">
+				字體顏色
+			</div>
+			<center><table><tr>
+			<td><img id="11" src=images/Black.gif></td>
+			<td><img id="12" src=images/Green.gif></td>
+			<td><img id="13" src=images/Blue.gif></td>
+			<!--
+				<td><img id="14" src=images/White.gif></td>
+			-->
+			</tr></table></center>
+			<br />
 			  
-			  <div class=test align="center">背景顏色</div>
-			  <center><table><tr>		  
-			  <td><img id="21" src=images/backBlack.gif></td><td><img id="22" src=images/backGreen.gif></td><td><img id="23" src=images/backBlue.gif></td><td><img id="24" src=images/backWhite.gif></td>
-			  </tr></table></center>
-			  <p id="testword">一二三 ABC abc 123</p>
+			<div class=test align="center">
+				背景顏色
+			</div>
+			<center><table><tr>		  
+			<td><img id="21" src=images/backBlack.gif></td><td><img id="22" src=images/backGreen.gif></td><td><img id="23" src=images/backBlue.gif></td><td><img id="24" src=images/backWhite.gif></td>
+			</tr></table></center>
+			<p id="testword">一二三 ABC abc 123</p>
 			  
-			  <button id="makesure">確認</button>
-
+			<!--
+			<select id="colorSelect">
+				<option value="#009">Blue</option>
+			</select>
+			-->
+			<button id="makesure">確認</button>
 		</div>
 
 </body>

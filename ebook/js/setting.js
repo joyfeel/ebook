@@ -1,5 +1,18 @@
 $(document).ready(function(){
 
+$("#fontSizeSmall").click(function() {
+
+	fontStyle = 1;
+});
+
+
+$("#fontSizeLarge").click(function() {
+
+	fontStyle = 1.5;
+});
+
+
+
 $("span").click(function() {
      var cssFontSize = $("#testword").css("font-size");
      var fontSize = parseFloat(cssFontSize);
@@ -15,19 +28,37 @@ $("span").click(function() {
       }
      }
      $("#testword").css("font-size", fontSize + unit); 
+		/*
+	if ((fontSize/10) > 1.6) {
+		fontStyle = 1.6;
+	} else {
+		fontStyle = (fontSize/10);
+	}
+	*/
     });
 $("#11").click(function() {
 	 $("#testword").css("color","black");
+	 
+	 colorStyle = "#000000";
+	 
 	 })
 $("#12").click(function() {
 	 $("#testword").css("color","#39DF3B");//green
+	 
+	 colorStyle = "#39DF3B";
 	 })
 $("#13").click(function() {
 	 $("#testword").css("color","#1989FF");//blue
+	 
+	 colorStyle = "#1989FF";
 	 })
+	 /*
 $("#14").click(function() {
 	 $("#testword").css("color","white");
+	 
+	 colorStyle = "#white";
 	 })
+	 */
 $("#21").click(function() {
 	 $("#testword").css("background","#332B33");//black
 	 })
@@ -40,6 +71,9 @@ $("#23").click(function() {
 $("#24").click(function() {
 	 $("#testword").css("background","#F1F1F1");//white
 	 })	 
+	 
+	 
+	 
 $("#makesure").click(function() {
      var cssFontSize = $("#testword").css("font-size");
      var fontSize = parseFloat(cssFontSize);
@@ -49,7 +83,7 @@ $("#makesure").click(function() {
 	 $(".tab").css("color",color);
 	 var bcolor = $("#testword").css("background-color");
      $(".tab").css("background",bcolor);
-	 })
+})
 	 
 $(read_window).scroll(function () {
      var scrollVal = $(this).scrollTop();
